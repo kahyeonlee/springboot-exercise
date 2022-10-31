@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Hospital {
     private int id;
-    private String openServiceName;
+    private String openServiceName;  //Camel case
     private int openLocalGovernmentCode;
     private String managementNumber;
     private LocalDateTime licenseDate;
-    private String businessStatus;
+    private int businessStatus;
     private int businessStatusCode;
     private String phone;
     private String fullAddress;
@@ -28,8 +28,6 @@ public class Hospital {
     private int patientRoomCount;
     private int totalNumberOfBeds;
     private float totalAreaSize;
-
-
 
 
 
