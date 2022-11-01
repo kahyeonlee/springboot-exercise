@@ -1,5 +1,6 @@
 package com.springbooot.springboot_exercise.domain.parser;
 
+import com.springbooot.springboot_exercise.dao.HospitalDao;
 import com.springbooot.springboot_exercise.domain.dto.Hospital;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +21,18 @@ class HospitalParserTest {
     @Autowired
     ReadLineContext<Hospital> hospitalReadLineContext;
 
+    @Autowired
+    HospitalDao hospitalDao;
+
+
+    @Test
+    @DisplayName("insert가 잘되는지")
+    void add(){
+        HospitalParser hp = new HospitalParser();
+        Hospital hospital = hp.parse(line1);
+        hospitalDao.add(hospital);
+
+    }
     @Test
     void name() throws IOException {
         String filename = "C:\\Users\\S20131412\\Desktop\\전국병의원.csv";
