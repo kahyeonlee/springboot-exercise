@@ -14,11 +14,15 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/hospital")
-@Slf4j
 public class HospitalController {
-    HospitalDao hospitalDao = new HospitalDao();
 
-    @GetMapping(value = "/{id}")
+    private final HospitalDao hospitalDao;
+
+    public HospitalController(HospitalDao hospitalDao) {
+        this.hospitalDao = hospitalDao;
+    }
+
+    @GetMapping("/{id}")
     public ResponseEntity<Hospital> get(@PathVariable Integer id) {
         Hospital hospital = hospitalDao.findById(id);
         Optional<Hospital> opt = Optional.of(hospital);
@@ -27,7 +31,6 @@ public class HospitalController {
             return ResponseEntity.ok().body(hospital);
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Hospital());
-
         }
     }
 }
