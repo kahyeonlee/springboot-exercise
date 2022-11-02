@@ -27,7 +27,6 @@ public class GetController {
     public String getVariable(@PathVariable String variable) {
         log.info("getVariable1으로 요청이 들어왔습니다.variable:{}",variable);
         return variable;
-
     }
 
     @GetMapping(value = "/request1")
